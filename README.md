@@ -62,6 +62,16 @@ npm run preview  # serve the production build locally
 The build uses **relative asset paths**, so `dist/` can be dropped onto any
 static host or game portal (itch.io, CrazyGames, GitHub Pages, …).
 
+### Deploy to GitHub Pages
+
+A workflow at `.github/workflows/deploy-pages.yml` builds the app and publishes
+it to GitHub Pages on every push to `main` (and on-demand via the Actions tab).
+
+One-time setup: in **Settings → Pages**, set **Source** to **GitHub Actions**
+(the workflow also attempts to enable this automatically on its first run). The
+site is then served at `https://<owner>.github.io/<repo>/` — the relative
+`base` in `vite.config.js` makes the sub-path work without extra config.
+
 ## 🧱 Tech & architecture
 
 - **React 19 + Vite + Tailwind CSS** — no game engine, no heavy runtime deps.
