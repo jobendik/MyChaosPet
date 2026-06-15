@@ -1,10 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import MyChaosPetPrototype from './MyChaosPetPrototype.jsx';
+import App from './App.jsx';
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <MyChaosPetPrototype />
-  </React.StrictMode>,
-);
+// Note: StrictMode is intentionally omitted. The game relies on imperative,
+// stateful subsystems (Web Audio scheduler, requestAnimationFrame particle
+// loop) that would be double-invoked under StrictMode's dev remount.
+createRoot(document.getElementById('root')).render(<App />);
